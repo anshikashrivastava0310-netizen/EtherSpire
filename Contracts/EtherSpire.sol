@@ -30,10 +30,8 @@ function_assetId)
 public
 view
 returnsmemory,address,memory=(asset.name,asset.currentOwner,update
+End
 // 
- 
-Updated on 2025-11-05
- 
 // 
 End
 // 
