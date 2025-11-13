@@ -33,6 +33,7 @@ returnsmemory,address,memory=(asset.name,asset.currentOwner,update
 End
 End
 End
+End
 // 
 // 
 End
