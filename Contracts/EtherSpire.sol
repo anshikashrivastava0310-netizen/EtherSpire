@@ -1,44 +1,43 @@
-//MIT
-pragma^0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-/**
-@title*Adecentralizedfordigitalandownership*/
+contract EtherSpire {
+    struct Milestone {
+        address user;
+        uint256 timestamp;
+        string description; // Description of the milestone
+        uint256 level;      // Optional: level or score
+    }
 
-contract{
-addressowner;
+    // Mapping milestone ID to milestone details
+    mapping(uint256 => Milestone) private milestones;
+    uint256 private nextMilestoneId = 1;
 
-struct{
-uintname;
-addresscurrentOwner;
-uintpublic=>public=>publicAssetCreated(uintid,name,indexedOwnershipTransferred(uintid,indexedaddressto);
+    // Event emitted when a new milestone is added
+    event MilestoneAdded(uint256 indexed milestoneId, address indexed user, uint256 timestamp, string description, uint256 level);
 
-constructor()=onlyOwner()=="Onlycanthis*Createnewasset
-@paramTheofdigital*/
-functionmemorypublic=_name,msg.sender,AssetCreated(assetCount,msg.sender);
+    // Add a milestone
+    function addMilestone(string memory description, uint256 level) external {
+        milestones[nextMilestoneId] = Milestone({
+            user: msg.sender,
+            timestamp: block.timestamp,
+            description: description,
+            level: level
+        });
+
+        emit MilestoneAdded(nextMilestoneId, msg.sender, block.timestamp, description, level);
+        nextMilestoneId++;
+    }
+
+    // View milestone by ID
+    function viewMilestone(uint256 milestoneId) external view returns (address user, uint256 timestamp, string memory description, uint256 level) {
+        Milestone memory m = milestones[milestoneId];
+        require(m.timestamp != 0, "Milestone does not exist");
+        return (m.user, m.timestamp, m.description, m.level);
+    }
+
+    // Total milestones added
+    function totalMilestones() external view returns (uint256) {
+        return nextMilestoneId - 1;
+    }
 }
-
-/**
-@devownershipanasset
-@paramTheofasset
-@paramAddresstheowner
-transferOwnership(uintaddresspublicstorage==="Younotcurrent!="InvalidownerpreviousOwnerasset.currentOwner;
-asset.currentOwner_newOwner;
-
-userAssets[_newOwner].push(_assetId);
-emitpreviousOwner,*Getofspecific*_assetIdIDthe*/
-function_assetId)
-public
-view
-returnsmemory,address,memory=(asset.name,asset.currentOwner,update
-End
-End
-End
-End
-End
-End
-End
-End
-// 
-// 
-End
-// 
